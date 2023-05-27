@@ -1,0 +1,145 @@
+:root {
+    --width: 100%;
+}
+.container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 70%;
+}
+
+.background { 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: inherit;
+    height: 100%;
+    background-repeat: round;
+    background-size: contain;
+}
+
+.background.back.trees{
+    background-image: url(./assets/background/background.png);
+    z-index: -15;
+    animation: front 15s linear infinite;
+    background-size: cover;
+}
+
+.background.middle.trees{
+    background-image: url(./assets/background/mountains.png);
+    top: 40%;
+    height: 60%;
+    z-index: -10;
+    animation: front 10s linear infinite;
+}
+
+/* .background.lights{
+    background-image: url(./assets/background/parallax-forest-lights.png);
+    z-index: -10;
+    animation: front 9s linear infinite;
+} */
+
+.background.front.trees {
+    background-image: url(./assets/background/objects.png);
+    animation: front 5s linear infinite;
+    width: inherit;
+    height: 100%;
+    background-repeat: round;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}
+
+@keyframes front {
+    0% {
+        background-position: 100%;
+    }
+    100% {
+        background-position: 10%;
+    }
+}
+
+.floor {
+    background-color: #6e4afeeb;
+    position: absolute;
+    bottom: 0;
+    height: 30%;
+    width: 100%;
+    margin: 0;
+    left: 0;
+}
+
+.character{
+    position: absolute;
+    top:50%;
+    left:10%;
+    width: 30px;
+    height: 100px;
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: rgb(191, 0, 255) 1px 1px 10px 10px;
+    padding: 10px 1px 1px 0px;
+    text-align: center;
+    font-size: large;
+    border-radius: 15px;
+}
+
+.jump{
+    animation: jump 1s steps(6);
+}
+
+.move-forward {
+    animation: move-forward .6s steps(3) infinite;
+}
+
+
+@keyframes move-forward {
+    0% {
+        margin: 10px;
+        top:48%;
+        border-radius: 3px;
+    }
+    50% {
+        margin: 1px;
+        top: 46%;
+        border-radius: 15px;
+    }
+    100%{
+        margin: 10px;
+        top:48%;
+        border-radius: 3px;
+    }
+}
+
+@keyframes jump {
+    0%{
+        top: 50%; 
+    }
+    50%{
+        top: 20%;
+    }
+    100%{
+        top: 50%;
+    }
+}
+
+
+.enemy {
+    position: absolute;
+    top: 55%;
+    animation: right-left-move 5s linear;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: white;
+    right: 10px;
+}
+
+@keyframes right-left-move {
+    from{
+        right: 0;
+    }
+    to{
+        right: 100%;
+    }
+}
