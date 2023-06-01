@@ -1,13 +1,5 @@
-import { Hero } from "./Hero.js";
-import { Enemy } from "./Enemy.js";
+import { Game } from "./Game.js";
 
-const hero = new Hero();
-const enemy = new Enemy();
+const gameContainer = document.querySelector('#game');
 
-const body = document.querySelector('body');
-
-enemy.attachTo(body);
-
-document.addEventListener("keydown", (e) => {
-   hero.jump();
-});
+const game = new Game(gameContainer);

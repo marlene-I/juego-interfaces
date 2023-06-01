@@ -9,14 +9,25 @@
     
 </head>
 <body>
-    <div class="container">
-        <div class="background lights"></div>
-        <div class="background front trees"></div>
-        <div class="background middle trees"></div>
-        <div class="background back trees"></div>
+    <div id="game">
+        <div class="container">
+            <div class="lifes"></div>
+            <div class="time"></div>
+            <div class="score"></div>
+            <div class="background lights"></div>
+            <div class="background front trees"></div>
+            <div class="background middle trees"></div>
+            <div class="background back trees"></div>
+        </div>
+        <div id="game-menu" class="game-menu" style="display: none;">
+            <div class="game-menu-title" id="game-title"></div>
+            <button id="how-to-play" class="menu-button"></button>
+            <button id="play" class="menu-button"></button>
+        </div>
+        <!-- <div class="character" id="character"></div> -->
+        <div class="floor"></div>
+
     </div>
-    <div class="character" id="character">° °<br>|<br>_</div>
-    <div class="floor"></div>
 </body>
 <script src="index.js" type="module"></script>
 </html>

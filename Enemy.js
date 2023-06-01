@@ -1,34 +1,57 @@
 import { Character } from "./Character.js";
 
 export class Enemy extends Character {
-    constructor(){
+    constructor() {
         super();
-        this.element = document.createElement('div');
-        this.element.classList.add('enemy');
+        this.create();
     }
 
-    attachTo(container){
+    create(){
+        this.element = document.createElement("div");
+        this.element.classList.add("enemy");
+    }
+
+    attachTo(container) {
         this.container = container;
         container.appendChild(this.element);
-        this.element.addEventListener('animationend', this)
+        this.element.addEventListener("animationend", this);
     }
 
-    handleEvent(e){
+    handleEvent(e) {
         switch (e.type) {
-            case 'animationend':
+            case "animationend":
                 switch (e.animationName) {
-                    case 'right-left-move':
-                        console.log('animation ended');
-                        this.container.removeChild(this.element);
+                    case "right-left-move":
+                        this.reset();
                         break;
-                
+
                     default:
                         break;
                 }
-                
-                
+
                 break;
-        
+
+            default:
+                break;
+        }
+    }
+
+    reset() {
+        this.element.remove();
+    }
+    
+    executeCollision(object){
+        object.hurt();
+    }
+
+    update(event){
+        //TODO add animation of dying enemys at remove
+        switch (event.name) {
+            case 'end-game':
+                this.element.remove();
+                this.observers = [];
+
+                break;
             default:
                 break;
         }

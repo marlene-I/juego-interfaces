@@ -1,3 +1,4 @@
-assets
+assets/got*
+assets/__MAC*
 *.zip
 *.md
